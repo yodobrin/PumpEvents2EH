@@ -44,7 +44,7 @@ namespace RecursivePump
             EventHubClient eventHubClient = EventHubClient.CreateFromConnectionString(eventHubConnectionStringBuilder.ToString());
             dynamic person = new System.Dynamic.ExpandoObject();
             person.id = Guid.NewGuid().ToString();
-            person.name = $"audiocodes{DateTime.Now.Ticks}";
+            person.name = $"just a person name {DateTime.Now.Ticks}";
             EventData eventData = new EventData(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(person)));
             eventHubClient.SendAsync(eventData);
             log.LogInformation($"Push2EH sent message to EH with id: {person.id}");  
